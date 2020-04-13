@@ -89,26 +89,26 @@ if (BENCHMARK_ENABLE_INSTALL)
   install(
     TARGETS benchmark benchmark_main
     EXPORT ${targets_export_name}
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+    INCLUDES DESTINATION include
 
   install(
     DIRECTORY "${PROJECT_SOURCE_DIR}/include/benchmark"
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    DESTINATION include
     FILES_MATCHING PATTERN "*.*h")
 
   install(
       FILES "${project_config}" "${version_config}"
-      DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
+      DESTINATION "lib/cmake/${PROJECT_NAME}")
 
   install(
       FILES "${pkg_config}"
-      DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
+      DESTINATION "lib/pkgconfig")
 
   install(
       EXPORT "${targets_export_name}"
       NAMESPACE "${namespace}"
-      DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
+      DESTINATION "lib/cmake/${PROJECT_NAME}")
 endif()
